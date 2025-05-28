@@ -1,22 +1,30 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+
+[RequireComponent(typeof(TMP_Text))]
 
 public class HealthTextIndicator : MonoBehaviour
 {
     [SerializeField] private Health _health;
-    [SerializeField] private TMP_Text _tmpText;
+    private TMP_Text _text;
 
     private void Awake()
     {
-        _tmpText = GetComponent<TMP_Text>();
+        _text = GetComponent<TMP_Text>();
+
+        _health.OnHealthChanged += UpdateText;
     }
 
-    private void Update()
+    private void OnDestroy()
     {
-        string formattedHealth = $"{_health.CurrentHealth}/{_health.MaxHealth}";
+        if (_health != null)
+        {
+            _health.OnHealthChanged -= UpdateText;
+        }
+    }
 
-        if (_tmpText != null)
-            _tmpText.text = formattedHealth;
+    private void UpdateText(float current, float max)
+    {
+        _text.text = $"{current}/{max}";
     }
 }

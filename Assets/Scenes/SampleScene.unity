@@ -149,6 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 1228622454}
+  _damageButton: {fileID: 1766890423}
+  _restoreButton: {fileID: 1584641987}
   _damageAmount: 10
   _healAmount: 10
 --- !u!4 &37908770
@@ -1075,7 +1077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: becd6bd6c9581dd4f8c647011a8e5311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _max: 100
 --- !u!4 &1228622455
 Transform:
   m_ObjectHideFlags: 0
@@ -1284,7 +1286,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 1228622454}
-  _tmpText: {fileID: 1365231213}
 --- !u!114 &1365231213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1541,19 +1542,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1584641988}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 37908769}
-        m_TargetAssemblyTypeName: HealthSimulatorUI, Assembly-CSharp
-        m_MethodName: AppleHeal
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1584641988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1674,19 +1663,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1766890424}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 37908769}
-        m_TargetAssemblyTypeName: HealthSimulatorUI, Assembly-CSharp
-        m_MethodName: ApplyDamage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1766890424
 MonoBehaviour:
   m_ObjectHideFlags: 0
