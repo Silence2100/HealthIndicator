@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class HealthBarIndicator : HealthBarBaseIndicator
 {
-    protected override void OnHealthChanged(float normalizedValue)
+    protected override void OnNormalizedChanged(float normalizedValue)
     {
-        _slider.value = normalizedValue;
+        Slider.value = normalizedValue;
     }
 }

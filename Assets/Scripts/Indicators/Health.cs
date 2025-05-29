@@ -8,16 +8,16 @@ public class Health : MonoBehaviour
     public float Max => _max;
     public float Current { get; private set; }
 
-    public event Action<float, float> OnHealthChanged;
+    public event Action<float, float> ValueChanged;
 
     private void Start()
     {
         Current = _max;
 
-        OnHealthChanged?.Invoke(Current, Max);
+        ValueChanged?.Invoke(Current, Max);
     }
 
-    public void InflictDamage(float amount)
+    public void TakeDamage(float amount)
     {
         if (amount < 0f)
         {
@@ -25,12 +25,11 @@ public class Health : MonoBehaviour
         }
 
         float old = Current;
-
         Current = Mathf.Clamp(Current - amount, 0f, _max);
 
         if (Current != old)
         {
-            OnHealthChanged?.Invoke(Current,Max);
+            ValueChanged?.Invoke(Current,Max);
         }
     }
 
@@ -42,12 +41,11 @@ public class Health : MonoBehaviour
         }
 
         float old = Current;
-
         Current = Mathf.Clamp(Current + amount, 0f, _max);
 
         if (Current != old)
         {
-            OnHealthChanged?.Invoke(Current, Max);
+            ValueChanged?.Invoke(Current, Max);
         }
     }
 }
